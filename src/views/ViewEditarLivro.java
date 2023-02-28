@@ -4,7 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 
-public class ViewEditarLivro extends JInternalFrame {
+public class ViewEditarLivro extends JInternalFrame 
+{
 
 	/**
 	 * Launch the application.

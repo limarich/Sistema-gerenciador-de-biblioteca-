@@ -4,7 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 
-public class ViewEditarCliente extends JInternalFrame {
+public class ViewEditarCliente extends JInternalFrame 
+{
 
 	/**
 	 * Launch the application.
@@ -26,6 +27,7 @@ public class ViewEditarCliente extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public ViewEditarCliente() {
+		
 		setClosable(true);
 		setBounds(100, 100, 450, 300);
 

@@ -6,7 +6,8 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-public class ViewAlugarLivro extends JInternalFrame {
+public class ViewAlugarLivro extends JInternalFrame 
+{
 
 	/**
 	 * Launch the application.

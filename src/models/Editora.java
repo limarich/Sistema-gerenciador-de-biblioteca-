@@ -1,6 +1,7 @@
 package models;
 
-public class Editora {
+public class Editora 
+{
 	
 	private int id;
 	private String nome;

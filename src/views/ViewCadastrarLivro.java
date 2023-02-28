@@ -13,7 +13,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ViewCadastrarLivro extends JInternalFrame {
+public class ViewCadastrarLivro extends JInternalFrame 
+{
 	private JTextField txtAa;
 	private JTextField textField;
 	private JTextField textField_1;

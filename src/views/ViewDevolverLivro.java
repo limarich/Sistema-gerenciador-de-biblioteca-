@@ -4,7 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 
-public class ViewDevolverLivro extends JInternalFrame {
+public class ViewDevolverLivro extends JInternalFrame 
+{
 
 	/**
 	 * Launch the application.

@@ -1,6 +1,7 @@
 package models;
 
-public class Livro {
+public class Livro 
+{
 	
 	private int codigo;
 	private int id_autor;

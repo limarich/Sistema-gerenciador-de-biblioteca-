@@ -16,10 +16,12 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ViewModalConfirmacao extends JDialog {
+public class ViewModalConfirmacao extends JDialog 
+{
 
 	private final JPanel contentPanel = new JPanel();
-
+	public ViewCadastrarCliente cadastrarCliente;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -66,11 +68,16 @@ public class ViewModalConfirmacao extends JDialog {
 			contentPanel.add(lblNewLabel);
 		}
 		{
-			JButton btnNewButton = new JButton("Sim");
-			btnNewButton.setForeground(Color.WHITE);
-			btnNewButton.setBackground(new Color(96, 108, 58));
-			btnNewButton.setBounds(101, 189, 85, 21);
-			contentPanel.add(btnNewButton);
+			JButton btnSi = new JButton("Sim");
+			btnSi.setForeground(Color.WHITE);
+			btnSi.setBackground(new Color(96, 108, 58));
+			btnSi.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			btnSi.setBounds(101, 189, 85, 21);
+			contentPanel.add(btnSi);
 		}
 		{
 			JButton btnNo = new JButton("Não");

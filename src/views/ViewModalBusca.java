@@ -18,7 +18,8 @@ import java.awt.event.ActionListener;
 import java.io.Console;
 import java.awt.event.ActionEvent;
 
-public class ViewModalBusca extends JDialog {
+public class ViewModalBusca extends JDialog 
+{
 	
 	// Parâmetros: String título, String nome_do_tipo_da_pesquisa
 
@@ -60,7 +61,7 @@ public class ViewModalBusca extends JDialog {
 		setBounds(0, 0, screenWidth, screenHeight);
 		
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(156, 102, 68));
+		contentPanel.setBackground(new Color(221, 161, 94));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);

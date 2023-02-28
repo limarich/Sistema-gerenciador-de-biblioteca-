@@ -23,9 +23,10 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
+import controllers.CadastrarClienteController;
 
-
-public class ViewCadastrarCliente extends JInternalFrame {
+public class ViewCadastrarCliente extends JInternalFrame 
+{
 	private JTextField textFieldNome;
 	private JTextField textFieldEmail;
 	private JTextField textFieldDataNas;
@@ -68,6 +69,23 @@ public class ViewCadastrarCliente extends JInternalFrame {
 		});
 	}
 
+	public void enviarDados() {
+		CadastrarClienteController cadastro = new CadastrarClienteController();
+		cadastro.pegarDados(
+			textFieldCpf.getText(),
+			this.textFieldNome.getText(),
+			this.textFieldDataNas.getText(),
+			this.textFieldTelefone.getText(),
+			this.textFieldEmail.getText(),
+			this.textFieldCep.getText(),
+			this.textFieldUf.getText(),
+			this.textFieldCidade.getText(),
+			this.textFieldBairro.getText(),
+			this.textFieldRua.getText(),
+			this.textFieldN.getText()
+		);
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -191,13 +209,12 @@ public class ViewCadastrarCliente extends JInternalFrame {
 		lblN.setBounds(1150, 480, 208, 40);
 		getContentPane().add(lblN);
 		
-		
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
-
 				modalConfirmacao.setVisible(true);
+				enviarDados();
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);
@@ -209,11 +226,11 @@ public class ViewCadastrarCliente extends JInternalFrame {
 		btnNewButton_1 = new JButton("Voltar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.print(textFieldNome.getText());
 				dispose();
 			}
 		});
 		btnNewButton_1.setBounds(134, 66, 85, 21);
 		getContentPane().add(btnNewButton_1);
-		
 	}
 }

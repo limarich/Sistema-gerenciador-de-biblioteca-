@@ -1,6 +1,7 @@
 package models;
 
-public class Exemplar {
+public class Exemplar 
+{
 	
 	private int id;
 	private int id_livro;

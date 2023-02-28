@@ -1,6 +1,7 @@
 package models;
 
-public class Usuario {
+public class Usuario 
+{
 	
 	private int cpf;
 	private String nome;
@@ -22,11 +23,11 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 	
-	public String getName() {
+	public String getNome() {
 		return nome;
 	}
 	
-	public void setName(String name) {
+	public void setNome(String name) {
 		this.nome = name;
 	}
 	

@@ -12,7 +12,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-public class ViewHomepage {
+
+public class ViewHomepage 
+{
 
 	private JFrame frame;
 
@@ -84,6 +86,8 @@ public class ViewHomepage {
 		JButton btnEditarCliente = new JButton("EDITAR CLIENTE");
 		btnEditarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ViewModalBusca viewModalBusca = new ViewModalBusca("Editar cadastro de clientes");
+				viewModalBusca.setVisible(true);
 				ViewEditarCliente viewEditarCliente = new ViewEditarCliente();
 				 desktopPane.add(viewEditarCliente);
 				 viewEditarCliente.setVisible(true);
