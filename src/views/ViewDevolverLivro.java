@@ -1,12 +1,18 @@
 package views;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 
-public class ViewDevolverLivro extends JInternalFrame 
-{
-
+public class ViewDevolverLivro extends JInternalFrame {
+	private JButton btnNewButton_2;
 	/**
 	 * Launch the application.
 	 */
@@ -27,8 +33,41 @@ public class ViewDevolverLivro extends JInternalFrame
 	 * Create the frame.
 	 */
 	public ViewDevolverLivro() {
+		getContentPane().setBackground(new Color(221, 161, 94));
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setClosable(true);
-		setBounds(100, 100, 450, 300);
+		setBounds(0, 0, screenSize.width, screenSize.height);
+		getContentPane().setLayout(null);
+		// 
+//		ViewModalBusca modalBusca = new ViewModalBusca("CPF do Usuário");
+//		modalBusca.setVisible(true);
+		// Botão Buscar - Irá fazer a query pelo cpf do usuário - o retorno deve ser uma nova pagina com a listas de livros alugados
+		JButton btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewModalBusca modalBusca = new ViewModalBusca("Insira o CPF do usuário");
+
+				modalBusca.setVisible(true);
+				
+			}
+		});
+		// Botão 0 - Buscar
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		btnNewButton.setBackground(new Color(156, 102, 68));
+		btnNewButton.setBounds(570, 707, 284, 44);
+		getContentPane().add(btnNewButton);
+		
+		
+		// Botão voltar - 
+		btnNewButton_2 = new JButton("Voltar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnNewButton_2.setBounds(26, 36, 85, 21);
+		getContentPane().add(btnNewButton_2);
 
 	}
 
