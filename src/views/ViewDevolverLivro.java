@@ -45,9 +45,9 @@ public class ViewDevolverLivro extends JInternalFrame {
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalBusca modalBusca = new ViewModalBusca("Insira o CPF do usuário");
+//				ViewModalBusca modalBusca = new ViewModalBusca("Insira o CPF do usuário");
 
-				modalBusca.setVisible(true);
+//				modalBusca.setVisible(true);
 				
 			}
 		});

@@ -24,6 +24,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 import controllers.CadastrarClienteController;
+import javax.swing.JRadioButton;
 
 public class ViewCadastrarCliente extends JInternalFrame 
 {
@@ -232,5 +233,6 @@ public class ViewCadastrarCliente extends JInternalFrame
 		});
 		btnNewButton_1.setBounds(134, 66, 85, 21);
 		getContentPane().add(btnNewButton_1);
+		
 	}
 }
