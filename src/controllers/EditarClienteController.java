@@ -13,10 +13,10 @@ public class EditarClienteController extends Usuario
 	public void checar(String cpf, ViewModalBusca frame) {
 		//
 		//se der ruim
-		frame.invalido();
+		//frame.invalido();
 		
 		//se der bom
-		frame.valido(usuario);
+		//frame.valido(usuario);
 	}
 	
 	// cpf, nome, dataNascimento, telefone, email, cep, uf, cidade, bairro, rua, numero

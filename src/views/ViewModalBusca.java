@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 import controllers.ConnectionDB;
 import controllers.EditarClienteController;
 import controllers.MeuDocumento;
+import models.Usuario;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,6 +29,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;
@@ -151,15 +153,35 @@ public class ViewModalBusca extends JInternalFrame
 			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					ConnectionDB con = new ConnectionDB();
+					String sql = "SELECT * FROM usuario where pk_cpf='"+textField.getText()+"';";
+					ResultSet res = con.executaBusca(sql);
+					
+					
 					try {
-						fetchUsuario();
+						while(res.next()) {
+							
+							Usuario usuario = new Usuario();
+							usuario.setNome(res.getString("nome_usuario"));
+							usuario.setEmail(res.getString("email_usuario"));
+							usuario.setTelefone(res.getString("telefone_usuario"));
+							usuario.setDataNascimento(res.getDate("data_nascimento"));
+							usuario.setRua(res.getString("rua"));
+							usuario.setBairro(res.getString("bairro"));
+							usuario.setUf(res.getString("cep"));
+							usuario.setNumero(Integer.parseInt(res.getString("numero")));
+							usuario.setCep(Integer.parseInt(res.getString("cep")));
+							
+							EditarClienteController editar = new EditarClienteController();
+							editar.checar(usuario, frame);
+						}
+						
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 						ViewModalErro erro = new ViewModalErro("CPF não cadastrado");
 						erro.setVisible(true);
 					}
-					home.openView(num, textField.getText());
+					
+					//home.openView(num, textField.getText());
 				}
 			});
 			btnOk.setBounds(frameX+410, frameY+100, 40, 40);

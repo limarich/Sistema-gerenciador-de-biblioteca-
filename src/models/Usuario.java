@@ -18,6 +18,7 @@ public class Usuario
 	private int numero;
 	private String senha;
 	
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -113,5 +114,4 @@ public class Usuario
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
 }
