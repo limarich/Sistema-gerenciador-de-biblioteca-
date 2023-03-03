@@ -40,7 +40,6 @@ public class ConnectionDB {
 		try {
 			Statement stm = con.createStatement();
 			ResultSet result = stm.executeQuery(sql);
-			closeConnection();
 			return result;
 		} catch (SQLException e) {
 			e.printStackTrace();

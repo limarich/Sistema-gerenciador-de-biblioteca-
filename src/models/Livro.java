@@ -1,5 +1,7 @@
 package models;
 
+import java.sql.Date;
+
 public class Livro 
 {
 	
@@ -7,7 +9,7 @@ public class Livro
 	private String autor;
 	private String editora;
 	private String titulo;
-	private String dataPublicacao;
+	private Date dataPublicacao;
 	
 	public String getAutor() {
 		return autor;
@@ -41,11 +43,11 @@ public class Livro
 		this.titulo = titulo;
 	}
 	
-	public String getDataPublicacao() {
+	public Date getDataPublicacao() {
 		return dataPublicacao;
 	}
 	
-	public void setDataPublicacao(String dataPublicacao) {
+	public void setDataPublicacao(Date dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
 	}
 	
