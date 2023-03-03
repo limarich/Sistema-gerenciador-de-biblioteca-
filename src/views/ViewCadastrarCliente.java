@@ -90,17 +90,6 @@ public class ViewCadastrarCliente extends JInternalFrame
 		);
 	}
 	
-	public static void abrir(JFrame frameAtual) {
-		ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao(frameAtual);
-		modalConfirmacao.setLocationRelativeTo(frameAtual);
-		modalConfirmacao.setVisible(true);
-		 System.out.println("Valor digitado: " + modalConfirmacao.getValor());
-		if (modalConfirmacao.getValor() == "1") {
-	        // Fazer algo com o valor retornado
-	        System.out.println("Valor digitado: " + modalConfirmacao.getValor());
-	    }
-	}
-	
 	/**
 	 * Create the frame.
 	 */

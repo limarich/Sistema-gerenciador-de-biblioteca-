@@ -27,9 +27,9 @@ public class ViewModalConfirmacao extends JDialog
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args, JFrame f) {
+	public static void main(String[] args) {
 		try {
-			ViewModalConfirmacao dialog = new ViewModalConfirmacao(f);
+			ViewModalConfirmacao dialog = new ViewModalConfirmacao();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -44,7 +44,7 @@ public class ViewModalConfirmacao extends JDialog
 	/**
 	 * Create the dialog.
 	 */
-	public ViewModalConfirmacao(JFrame f) {
+	public ViewModalConfirmacao() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		// obtém a largura e altura da tela
 		int screenWidth = screenSize.width;
