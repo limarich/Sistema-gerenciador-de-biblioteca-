@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controllers.AlugarLivroController;
+import controllers.MeuDocumento;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -155,6 +156,7 @@ public class ViewAlugarLivro extends JInternalFrame
                 public void keyReleased(KeyEvent e) {
                 }
             });
+			textFieldCpf.setDocument(new MeuDocumento(11));  
 			textFieldCpf.setBounds(frameX+30, frameY+100, 360, 40);
 			textFieldCpf.setColumns(10);
 			contentPanel.add(textFieldCpf);
@@ -165,7 +167,15 @@ public class ViewAlugarLivro extends JInternalFrame
 			btnAlugar.setBackground(new Color(96, 108, 58));
 			btnAlugar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					enviarDados();
+					if(textFieldCpf.getText().length() == 11) {
+						ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
+	                    modalConfirmacao.setVisible(true);
+						enviarDados();
+					} else {
+						ViewModalErro erro = new ViewModalErro("CPF Inválido");
+						erro.setVisible(true);
+					}
+					
 				}
 			});
 			btnAlugar.setBounds(frameX+150, frameY+200, 180, 40);

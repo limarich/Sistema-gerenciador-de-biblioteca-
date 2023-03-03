@@ -100,7 +100,7 @@ public class ViewHomepage
 		JButton btnDevolverLivro = new JButton("DEVOLVER LIVRO");
 		btnDevolverLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalBusca viewModalBusca = new ViewModalBusca("Devolução de livro", window, 2);
+				ViewModalBusca viewModalBusca = new ViewModalBusca("Devolução de livro", window, 2, "Digite o cpf do usuário");
 				desktopPane.add(viewModalBusca);
 				viewModalBusca.setVisible(true);
 				
@@ -113,7 +113,7 @@ public class ViewHomepage
 		JButton btnEditarCliente = new JButton("EDITAR CLIENTE");
 		btnEditarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalBusca viewModalBusca = new ViewModalBusca("Editar cadastro de clientes", window, 1);
+				ViewModalBusca viewModalBusca = new ViewModalBusca("Editar cadastro de clientes", window, 1, "Digite o cpf do usuário");
 				desktopPane.add(viewModalBusca);
 				viewModalBusca.setVisible(true);
 			}
@@ -137,7 +137,7 @@ public class ViewHomepage
 		JButton btnAlugarLivro = new JButton("ALUGAR LIVRO");
 		btnAlugarLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalBusca viewModalBusca = new ViewModalBusca("Busca de exemplares disponíveis", window, 3);
+				ViewModalBusca viewModalBusca = new ViewModalBusca("Busca de exemplares disponíveis", window, 3, "Digite o título do livro");
 				desktopPane.add(viewModalBusca);
 				viewModalBusca.setVisible(true);
 			}
@@ -149,7 +149,7 @@ public class ViewHomepage
 		JButton btnEditarLivro = new JButton("EDITAR LIVRO");
 		btnEditarLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalBusca viewModalBusca = new ViewModalBusca("Editar cadastro de livros", window, 4);
+				ViewModalBusca viewModalBusca = new ViewModalBusca("Editar cadastro de livros", window, 4, "Digite o título do livro");
 				desktopPane.add(viewModalBusca);
 				viewModalBusca.setVisible(true);
 			}
