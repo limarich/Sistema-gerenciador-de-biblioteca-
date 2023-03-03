@@ -10,6 +10,7 @@ import controllers.ConnectionDB;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import java.awt.Dimension;
@@ -102,6 +103,7 @@ public class ViewHomepage
 				ViewModalBusca viewModalBusca = new ViewModalBusca("Devolução de livro", window, 2, "Digite o cpf do usuário");
 				desktopPane.add(viewModalBusca);
 				viewModalBusca.setVisible(true);
+				
 			}
 		});
 		btnDevolverLivro.setBackground(new Color(217, 217, 217));
