@@ -10,7 +10,6 @@ public class CadastrarLivroController extends Livro
 	Random random = new Random();
 	Livro livro = new Livro();
 	Exemplar exemplar = new Exemplar();
-	private int aleatorio;
 	private int turnInt;
 	
 	// codigo, autor, editora, dataPublicacao, titulo
@@ -35,7 +34,10 @@ public class CadastrarLivroController extends Livro
 		for(int i = 0; i<turnInt; i++) {
 			this.exemplar.setId_livro(Integer.parseInt(codigo));
 			this.exemplar.setStatus("disponivel");
-			aleatorio = random.nextInt(99999);
+			this.exemplar.setId(random.nextInt(99999));
+			this.exemplar.setDt_inicio(null);
+			this.exemplar.setDt_fim(null);
+			this.exemplar.setCpf(0);
 			// cadastrar cada objeto no banco
 		}
 		
