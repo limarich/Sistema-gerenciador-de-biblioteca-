@@ -20,6 +20,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
@@ -97,10 +98,21 @@ public class ViewCadastrarCliente extends JInternalFrame
 	 * Create the frame.
 	 */
 	public ViewCadastrarCliente() {
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		// obtém a largura e altura da tela
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+
+		// define a largura e altura da janela
+		int frameWidth = 450;
+		int frameHeight = 300;
+
+		// calcula a posição x e y da janela para centralizá-la na tela
+		int frameX = (screenWidth - frameWidth) / 2;
+		
 		setMaximizable(true);
 		setResizable(true);
 		getContentPane().setBackground(new Color(221, 161, 94));
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setClosable(true);
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		getContentPane().setLayout(null);
@@ -253,5 +265,9 @@ public class ViewCadastrarCliente extends JInternalFrame
 		btnNewButton_1.setBounds(134, 66, 85, 21);
 		getContentPane().add(btnNewButton_1);
 		
+		ImageIcon imagem = new ImageIcon(getClass().getResource("alexandre.png"));
+		JLabel label = new JLabel(imagem);
+		label.setBounds(frameX+136, 20, 136, 103);
+		getContentPane().add(label);
 	}
 }

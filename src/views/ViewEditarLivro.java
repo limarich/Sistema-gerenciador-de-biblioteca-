@@ -68,8 +68,19 @@ public class ViewEditarLivro extends JInternalFrame
 	 * Create the frame.
 	 */
 	public ViewEditarLivro() {
-		getContentPane().setBackground(new Color(221, 161, 94));
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		// obtém a largura e altura da tela
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+
+		// define a largura e altura da janela
+		int frameWidth = 450;
+		int frameHeight = 300;
+
+		// calcula a posição x e y da janela para centralizá-la na tela
+		int frameX = (screenWidth - frameWidth) / 2;
+		
+		getContentPane().setBackground(new Color(221, 161, 94));
 		setClosable(true);
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		getContentPane().setLayout(null);
@@ -161,6 +172,11 @@ public class ViewEditarLivro extends JInternalFrame
 		JLabel label = new JLabel(imagem);
 		label.setBounds(790, 341, 407, 349);
 		getContentPane().add(label);
+		
+		ImageIcon imag = new ImageIcon(getClass().getResource("alexandre.png"));
+		JLabel la = new JLabel(imag);
+		la.setBounds(frameX+136, 20, 136, 103);
+		getContentPane().add(la);
 		
 		
 	}

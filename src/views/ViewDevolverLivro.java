@@ -8,8 +8,10 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 
 public class ViewDevolverLivro extends JInternalFrame {
 	private JButton btnNewButton_2;
@@ -34,10 +36,20 @@ public class ViewDevolverLivro extends JInternalFrame {
 	 * @param cpf 
 	 */
 	public ViewDevolverLivro(String cpf) {
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		// obtém a largura e altura da tela
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+
+		// define a largura e altura da janela
+		int frameWidth = 450;
+		int frameHeight = 300;
+
+		// calcula a posição x e y da janela para centralizá-la na tela
+		int frameX = (screenWidth - frameWidth) / 2;
 		
 		
 		getContentPane().setBackground(new Color(221, 161, 94));
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setClosable(true);
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		getContentPane().setLayout(null);
@@ -71,6 +83,11 @@ public class ViewDevolverLivro extends JInternalFrame {
 //		});
 //		btnNewButton_2.setBounds(26, 36, 85, 21);
 //		getContentPane().add(btnNewButton_2);
+	
+		ImageIcon imag = new ImageIcon(getClass().getResource("alexandre.png"));
+		JLabel la = new JLabel(imag);
+		la.setBounds(frameX+136, 20, 136, 103);
+		getContentPane().add(la);
 
 	}
 
