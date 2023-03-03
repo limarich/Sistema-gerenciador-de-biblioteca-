@@ -45,6 +45,7 @@ public class ViewAlugarLivro extends JInternalFrame
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	private JLabel lblPlaceholder;
 	private JTextField textFieldExemplar;
 	private JTextField textFieldCpf;
 	private static ViewAlugarLivro frame;
@@ -160,6 +161,13 @@ public class ViewAlugarLivro extends JInternalFrame
 			textFieldCpf.setBounds(frameX+30, frameY+100, 360, 40);
 			textFieldCpf.setColumns(10);
 			contentPanel.add(textFieldCpf);
+		}
+		{
+			lblPlaceholder = new JLabel("Digite o cpf do usuário");
+			lblPlaceholder.setFont(new Font("Tahoma", Font.PLAIN, 10));
+			lblPlaceholder.setForeground(Color.BLACK);
+			lblPlaceholder.setBounds(frameX+30, frameY+120, 350, 64);
+			contentPanel.add(lblPlaceholder);
 		}
 		{
 			JButton btnAlugar = new JButton("Alugar");

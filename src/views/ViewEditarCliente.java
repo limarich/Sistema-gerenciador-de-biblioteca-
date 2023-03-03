@@ -26,6 +26,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 import controllers.EditarClienteController;
+import models.Usuario;
 
 public class ViewEditarCliente extends JInternalFrame 
 {
@@ -52,7 +53,7 @@ public class ViewEditarCliente extends JInternalFrame
 	private JLabel lblCep;
 	private JLabel lblN;
 	private JButton btnNewButton_1;
-	
+	private ViewEditarCliente frame;
 	
 	
 	/**
@@ -74,7 +75,17 @@ public class ViewEditarCliente extends JInternalFrame
 	public boolean pegarFlag(boolean tome) {
 		return tome;
 	}
-
+	
+	
+	public void valido(Usuario usuario) {
+		//voltam os valores para o front com o textInput.setText(usuario.cpf)
+	}
+	
+	public void invalido() {
+		ViewModalErro erro = new ViewModalErro("CPF não cadastrado");
+		erro.setVisible(true);
+	}
+	
 	public void enviarDados() {
 		EditarClienteController editar = new EditarClienteController();
 		editar.pegarDados(
@@ -103,7 +114,7 @@ public class ViewEditarCliente extends JInternalFrame
 		setClosable(true);
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		getContentPane().setLayout(null);
-		//textInput.setText
+		
 		textFieldNome = new JTextField();
 		textFieldNome.setBounds(160, 170, 400, 40);
 		getContentPane().add(textFieldNome);

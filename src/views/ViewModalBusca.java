@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import controllers.ConnectionDB;
+import controllers.EditarClienteController;
 import controllers.MeuDocumento;
 
 import java.awt.Color;
@@ -26,6 +28,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -64,6 +67,10 @@ public class ViewModalBusca extends JInternalFrame
 		}
 	}
 	
+	public void fetchUsuario() {
+		EditarClienteController editar = new EditarClienteController();
+		editar.checar(this.textField.getText(), frame);
+	}
 	
 	/**
 	 * Create the dialog.
@@ -143,6 +150,15 @@ public class ViewModalBusca extends JInternalFrame
 			JButton btnOk = new JButton("OK");
 			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					ConnectionDB con = new ConnectionDB();
+					try {
+						fetchUsuario();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+						ViewModalErro erro = new ViewModalErro("CPF não cadastrado");
+						erro.setVisible(true);
+					}
 					home.openView(num, textField.getText());
 				}
 			});

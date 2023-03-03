@@ -3,10 +3,21 @@ package controllers;
 import java.sql.Date;
 
 import models.Usuario;
+import views.ViewEditarCliente;
+import views.ViewModalBusca;
 
 public class EditarClienteController extends Usuario 
 {
 	Usuario usuario = new Usuario();
+	
+	public void checar(String cpf, ViewModalBusca frame) {
+		//
+		//se der ruim
+		frame.invalido();
+		
+		//se der bom
+		frame.valido(usuario);
+	}
 	
 	// cpf, nome, dataNascimento, telefone, email, cep, uf, cidade, bairro, rua, numero
 	public void pegarDados(

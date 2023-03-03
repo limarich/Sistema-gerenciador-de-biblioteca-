@@ -6,8 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controllers.ConnectionDB;
+import controllers.EditarClienteController;
 
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
@@ -15,6 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDesktopPane;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JLabel;
 
 public class ViewHomepage 
 {
@@ -45,6 +49,7 @@ public class ViewHomepage
 		if(num == 1) {
 			ViewEditarCliente viewEditarCliente = new ViewEditarCliente();
 			desktopPane.add(viewEditarCliente);
+			
 			viewEditarCliente.setVisible(true);			
 		} else if(num == 2) {
 			ViewDevolverLivro viewDevolverLivro = new ViewDevolverLivro( cpf );
@@ -83,6 +88,8 @@ public class ViewHomepage
 		frame.getContentPane().add(desktopPane);
 		desktopPane.setBounds(0, 0, screenSize.width, screenSize.height);
 		desktopPane.setLayout(null);
+		
+
 		
 		JButton btnCadastrarCliente = new JButton("CADASTRAR CLIENTE");
 		btnCadastrarCliente.addActionListener(new ActionListener() {
