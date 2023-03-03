@@ -88,7 +88,7 @@ public class ViewHomepage
 
 		// calcula a posição x e y da janela para centralizá-la na tela
 		int frameX = (screenWidth - frameWidth) / 2;
-		
+		int frameY = (screenHeight - frameHeight) / 2;
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(221, 161, 94));
@@ -102,19 +102,17 @@ public class ViewHomepage
 		desktopPane.setLayout(null);
 		
 
-		
-		JButton btnCadastrarCliente = new JButton("CADASTRAR CLIENTE");
-		btnCadastrarCliente.addActionListener(new ActionListener() {
+		JButton btnAlugarLivro = new JButton("ALUGAR LIVRO");
+		btnAlugarLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewCadastrarCliente viewCadastrarCliente= new ViewCadastrarCliente();
-				desktopPane.add(viewCadastrarCliente);
-				viewCadastrarCliente.setVisible(true);
-				
+				ViewModalBusca viewModalBusca = new ViewModalBusca("Busca de exemplares disponíveis", window, 3, "Digite o título do livro");
+				desktopPane.add(viewModalBusca);
+				viewModalBusca.setVisible(true);
 			}
 		});
-		btnCadastrarCliente.setBackground(new Color(220, 190, 156));
-		btnCadastrarCliente.setBounds(778, 262, 136, 45);
-		desktopPane.add(btnCadastrarCliente);
+		btnAlugarLivro.setBackground(new Color(220, 190, 156));
+		btnAlugarLivro.setBounds(frameX-175, frameY, 350, 100);
+		desktopPane.add(btnAlugarLivro);
 		
 		JButton btnDevolverLivro = new JButton("DEVOLVER LIVRO");
 		btnDevolverLivro.addActionListener(new ActionListener() {
@@ -126,20 +124,8 @@ public class ViewHomepage
 			}
 		});
 		btnDevolverLivro.setBackground(new Color(220, 190, 156));
-		btnDevolverLivro.setBounds(334, 392, 136, 45);
+		btnDevolverLivro.setBounds(frameX-175, frameY+150, 350, 100);
 		desktopPane.add(btnDevolverLivro);
-		
-		JButton btnEditarCliente = new JButton("EDITAR CLIENTE");
-		btnEditarCliente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ViewModalBusca viewModalBusca = new ViewModalBusca("Editar cadastro de clientes", window, 1, "Digite o cpf do usuário");
-				desktopPane.add(viewModalBusca);
-				viewModalBusca.setVisible(true);
-			}
-		});
-		btnEditarCliente.setBackground(new Color(220, 190, 156));
-		btnEditarCliente.setBounds(334, 262, 136, 45);
-		desktopPane.add(btnEditarCliente);
 		
 		JButton btnCadastrarLivro = new JButton("CADASTRAR LIVRO");
 		btnCadastrarLivro.addActionListener(new ActionListener() {
@@ -150,20 +136,8 @@ public class ViewHomepage
 			}
 		});
 		btnCadastrarLivro.setBackground(new Color(220, 190, 156));
-		btnCadastrarLivro.setBounds(334, 151, 136, 45);
+		btnCadastrarLivro.setBounds(frameX-175, frameY+300, 350, 100);
 		desktopPane.add(btnCadastrarLivro);
-		
-		JButton btnAlugarLivro = new JButton("ALUGAR LIVRO");
-		btnAlugarLivro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ViewModalBusca viewModalBusca = new ViewModalBusca("Busca de exemplares disponíveis", window, 3, "Digite o título do livro");
-				desktopPane.add(viewModalBusca);
-				viewModalBusca.setVisible(true);
-			}
-		});
-		btnAlugarLivro.setBackground(new Color(220, 190, 156));
-		btnAlugarLivro.setBounds(778, 151, 136, 45);
-		desktopPane.add(btnAlugarLivro);
 		
 		JButton btnEditarLivro = new JButton("EDITAR LIVRO");
 		btnEditarLivro.addActionListener(new ActionListener() {
@@ -174,8 +148,34 @@ public class ViewHomepage
 			}
 		});
 		btnEditarLivro.setBackground(new Color(220, 190, 156));
-		btnEditarLivro.setBounds(778, 392, 136, 45);
+		btnEditarLivro.setBounds(frameX+250, frameY, 350, 100);
 		desktopPane.add(btnEditarLivro);
+		
+		JButton btnEditarCliente = new JButton("EDITAR CLIENTE");
+		btnEditarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewModalBusca viewModalBusca = new ViewModalBusca("Editar cadastro de clientes", window, 1, "Digite o cpf do usuário");
+				desktopPane.add(viewModalBusca);
+				viewModalBusca.setVisible(true);
+			}
+		});
+		btnEditarCliente.setBackground(new Color(220, 190, 156));
+		btnEditarCliente.setBounds(frameX+250, frameY+150, 350, 100);
+		desktopPane.add(btnEditarCliente);
+		
+		JButton btnCadastrarCliente = new JButton("CADASTRAR CLIENTE");
+		btnCadastrarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewCadastrarCliente viewCadastrarCliente= new ViewCadastrarCliente();
+				desktopPane.add(viewCadastrarCliente);
+				viewCadastrarCliente.setVisible(true);
+				
+			}
+		});
+		btnCadastrarCliente.setBackground(new Color(220, 190, 156));
+		btnCadastrarCliente.setBounds(frameX+250, frameY+300, 350, 100);
+		desktopPane.add(btnCadastrarCliente);
+			
 
 		ImageIcon imagem = new ImageIcon(getClass().getResource("alexandre.png"));
 		JLabel label = new JLabel(imagem);
