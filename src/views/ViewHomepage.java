@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import controllers.ConnectionDB;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -87,6 +89,7 @@ public class ViewHomepage
 				ViewCadastrarCliente viewCadastrarCliente= new ViewCadastrarCliente();
 				desktopPane.add(viewCadastrarCliente);
 				viewCadastrarCliente.setVisible(true);
+				
 			}
 		});
 		btnCadastrarCliente.setBackground(new Color(217, 217, 217));

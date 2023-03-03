@@ -1,25 +1,27 @@
 package models;
 
+import java.sql.Date;
+
 public class Usuario 
 {
 	
-	private int cpf;
+	private String cpf;
 	private String nome;
-	private String dataNascimento;
+	private Date dataNascimento;
 	private String telefone;
 	private String email;
-	private String cep;
+	private int cep;
 	private String uf;
 	private String cidade;
 	private String bairro;
 	private String rua;
 	private int numero;
 	
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
@@ -31,12 +33,12 @@ public class Usuario
 		this.nome = name;
 	}
 	
-	public String getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 	
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(Date data) {
+		this.dataNascimento = data;
 	}
 	
 	public String getTelefone() {
@@ -55,11 +57,11 @@ public class Usuario
 		this.email = email;
 	}
 	
-	public String getCep() {
+	public int getCep() {
 		return cep;
 	}
 	
-	public void setCep(String cep) {
+	public void setCep(int cep) {
 		this.cep = cep;
 	}
 	

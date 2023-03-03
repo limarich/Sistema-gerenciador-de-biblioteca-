@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -70,7 +71,7 @@ public class ViewCadastrarCliente extends JInternalFrame
 		});
 	}
 
-	public void enviarDados() {
+	public void enviarDados() throws SQLException {
 		CadastrarClienteController cadastro = new CadastrarClienteController();
 		cadastro.pegarDados(
 			textFieldCpf.getText(),
@@ -215,7 +216,12 @@ public class ViewCadastrarCliente extends JInternalFrame
 			public void actionPerformed(ActionEvent e) {
 				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
 				modalConfirmacao.setVisible(true);
-				enviarDados();
+				try {
+					enviarDados();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);

@@ -1,5 +1,7 @@
 package controllers;
 
+import java.sql.Date;
+
 import models.Usuario;
 
 public class EditarClienteController extends Usuario 
@@ -10,7 +12,7 @@ public class EditarClienteController extends Usuario
 	public void pegarDados(
 							String cpf, 
 							String nome, 
-							String dataNascimento, 
+							Date string, 
 							String telefone, 
 							String email, 
 							String cep, 
@@ -21,17 +23,23 @@ public class EditarClienteController extends Usuario
 							String numero
 						 ) 
 	{
-		this.usuario.setCpf(Integer.parseInt(cpf));
+		this.usuario.setCpf(cpf);
 		this.usuario.setNome(nome);
-		this.usuario.setDataNascimento(dataNascimento);
+		this.usuario.setDataNascimento(string);
 		this.usuario.setTelefone(telefone);
 		this.usuario.setEmail(email);
-		this.usuario.setCep(cep);
+		this.usuario.setCep(Integer.parseInt(cep));
 		this.usuario.setUf(uf);
 		this.usuario.setCidade(cidade);
 		this.usuario.setBairro(bairro);
 		this.usuario.setRua(rua);
 		this.usuario.setNumero(Integer.parseInt(numero));
+		
+	}
+
+	public void pegarDados(String text, String text2, String text3, String text4, String text5, String text6,
+			String text7, String text8, String text9, String text10, String text11) {
+		// TODO Auto-generated method stub
 		
 	}
 }
