@@ -21,7 +21,7 @@ public class EditarClienteController extends Usuario
 							String numero
 						 ) 
 	{
-		this.usuario.setCpf(Integer.parseInt(cpf));
+		this.usuario.setCpf(cpf);
 		this.usuario.setNome(nome);
 		this.usuario.setDataNascimento(dataNascimento);
 		this.usuario.setTelefone(telefone);

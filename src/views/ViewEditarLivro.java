@@ -119,13 +119,10 @@ public class ViewEditarLivro extends JInternalFrame
 		lblCodigoIsbn.setBounds(790, 240, 208, 40);
 		getContentPane().add(lblCodigoIsbn);
 		
-		JButton btnNewButton = new JButton("Cadastrar");
+		JButton btnNewButton = new JButton("Atualizar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
-
-				modalConfirmacao.setVisible(true);
-				
+				dispose();
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);

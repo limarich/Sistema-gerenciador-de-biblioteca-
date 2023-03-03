@@ -3,7 +3,7 @@ package models;
 public class Usuario 
 {
 	
-	private int cpf;
+	private String cpf;
 	private String nome;
 	private String dataNascimento;
 	private String telefone;
@@ -14,12 +14,13 @@ public class Usuario
 	private String bairro;
 	private String rua;
 	private int numero;
+	private String senha;
 	
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
@@ -101,6 +102,14 @@ public class Usuario
 	
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 }

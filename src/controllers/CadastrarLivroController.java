@@ -37,7 +37,7 @@ public class CadastrarLivroController extends Livro
 			this.exemplar.setId(random.nextInt(99999));
 			this.exemplar.setDt_inicio(null);
 			this.exemplar.setDt_fim(null);
-			this.exemplar.setCpf(0);
+			this.exemplar.setCpf(null);
 			// cadastrar cada objeto no banco
 		}
 		

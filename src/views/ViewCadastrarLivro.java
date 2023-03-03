@@ -138,10 +138,8 @@ public class ViewCadastrarLivro extends JInternalFrame
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
-
-				modalConfirmacao.setVisible(true);
-				
+				enviarDados();
+				dispose();
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);
@@ -152,9 +150,7 @@ public class ViewCadastrarLivro extends JInternalFrame
 		btnNewButton_1 = new JButton("Voltar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
-				modalConfirmacao.setVisible(true);
-				enviarDados();
+				dispose();
 			}
 		});
 		btnNewButton_1.setBounds(134, 66, 85, 21);

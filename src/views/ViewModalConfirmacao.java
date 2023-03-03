@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
@@ -16,29 +17,34 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class ViewModalConfirmacao extends JDialog 
 {
-
 	private final JPanel contentPanel = new JPanel();
 	public ViewCadastrarCliente cadastrarCliente;
+	String valor;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args, JFrame f) {
 		try {
-			ViewModalConfirmacao dialog = new ViewModalConfirmacao();
+			ViewModalConfirmacao dialog = new ViewModalConfirmacao(f);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public String getValor() {
+		return this.valor;
+	}
+	
 	/**
 	 * Create the dialog.
 	 */
-	public ViewModalConfirmacao() {
+	public ViewModalConfirmacao(JFrame f) {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		// obtém a largura e altura da tela
 		int screenWidth = screenSize.width;
@@ -72,7 +78,9 @@ public class ViewModalConfirmacao extends JDialog
 			btnSi.setForeground(Color.WHITE);
 			btnSi.setBackground(new Color(96, 108, 58));
 			btnSi.addActionListener(new ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
+					valor = "1";
 					dispose();
 				}
 			});
@@ -90,5 +98,6 @@ public class ViewModalConfirmacao extends JDialog
 			contentPanel.add(btnNo);
 		}
 	}
+	
 
 }

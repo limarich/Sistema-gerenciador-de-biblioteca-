@@ -218,8 +218,6 @@ public class ViewEditarCliente extends JInternalFrame
 		JButton btnNewButton = new JButton("Atualizar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
-				modalConfirmacao.setVisible(true);
 				enviarDados();
 			}
 		});

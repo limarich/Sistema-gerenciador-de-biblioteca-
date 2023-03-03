@@ -1,10 +1,13 @@
 package controllers;
 
+import java.util.Random;
+
 import models.Usuario;
 
 public class CadastrarClienteController extends Usuario 
 {
 	Usuario usuario = new Usuario();
+	Random random = new Random();
 	
 	// cpf, nome, dataNascimento, telefone, email, cep, uf, cidade, bairro, rua, numero
 	public void pegarDados(
@@ -21,7 +24,7 @@ public class CadastrarClienteController extends Usuario
 							String numero
 						 ) 
 	{
-		this.usuario.setCpf(Integer.parseInt(cpf));
+		this.usuario.setCpf(cpf);
 		this.usuario.setNome(nome);
 		this.usuario.setDataNascimento(dataNascimento);
 		this.usuario.setTelefone(telefone);
@@ -32,6 +35,7 @@ public class CadastrarClienteController extends Usuario
 		this.usuario.setBairro(bairro);
 		this.usuario.setRua(rua);
 		this.usuario.setNumero(Integer.parseInt(numero));
+		this.usuario.setSenha(null);
 		
 	}
 }

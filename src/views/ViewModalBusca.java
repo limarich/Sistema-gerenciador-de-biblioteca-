@@ -127,6 +127,7 @@ public class ViewModalBusca extends JInternalFrame
 			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					home.openView(num);
+					dispose();
 				}
 			});
 			btnOk.setBounds(frameX+410, frameY+100, 40, 40);
