@@ -38,13 +38,13 @@ public class ViewHomepage
 		});
 	}
 	
-	public void openView(int num) {
+	public void openView(int num, String cpf) {
 		if(num == 1) {
 			ViewEditarCliente viewEditarCliente = new ViewEditarCliente();
 			desktopPane.add(viewEditarCliente);
 			viewEditarCliente.setVisible(true);			
 		} else if(num == 2) {
-			ViewDevolverLivro viewDevolverLivro = new ViewDevolverLivro();
+			ViewDevolverLivro viewDevolverLivro = new ViewDevolverLivro( cpf );
 			desktopPane.add(viewDevolverLivro);
 			viewDevolverLivro.setVisible(true);
 		} else if(num == 3) {
