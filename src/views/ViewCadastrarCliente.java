@@ -73,7 +73,7 @@ public class ViewCadastrarCliente extends JInternalFrame
 	public void enviarDados() {
 		CadastrarClienteController cadastro = new CadastrarClienteController();
 		cadastro.pegarDados(
-			textFieldCpf.getText(),
+			this.textFieldCpf.getText(),
 			this.textFieldNome.getText(),
 			this.textFieldDataNas.getText(),
 			this.textFieldTelefone.getText(),

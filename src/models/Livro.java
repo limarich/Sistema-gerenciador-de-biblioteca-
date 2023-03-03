@@ -4,36 +4,26 @@ public class Livro
 {
 	
 	private int codigo;
-	private int id_autor;
-	private int id_editora;
-	private int id_genero;
+	private String autor;
+	private String editora;
 	private String titulo;
 	private String dataPublicacao;
 	
-	public int getId_autor() {
-		return id_autor;
+	public String getAutor() {
+		return autor;
 	}
 	
-	public void setId_autor(int id_autor) {
-		this.id_autor = id_autor;
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 	
-	public int getId_editora() {
-		return id_editora;
+	public String getEditora() {
+		return editora;
 	}
 
-	public void setId_editora(int id_editora) {
-		this.id_editora = id_editora;
+	public void setEditora(String editora) {
+		this.editora = editora;
 	}
-	
-	public int getId_genero() {
-		return id_genero;
-	}
-
-	public void setId_genero(int id_genero) {
-		this.id_genero = id_genero;
-	}
-
 	
 	public int getCodigo() {
 		return codigo;
