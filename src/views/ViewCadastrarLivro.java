@@ -8,26 +8,35 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import controllers.CadastrarClienteController;
+import controllers.CadastrarLivroController;
+
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JEditorPane;
 
 public class ViewCadastrarLivro extends JInternalFrame 
 {
-	private JTextField txtAa;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField textFieldAutor;
+	private JTextField textFieldEditora;
+	private JTextField textFieldDataDaPublicacao;
+	private JTextField textFieldNumeroDeExemplares;
+	private JTextField textFieldTitulo;
+	private JTextField textFieldCodigo;
+	private JLabel lblAutor;
 	private JLabel lblEditora;
 	private JLabel lblDataDaPublicao;
-	private JLabel lblNmeroDeExemplares;
-	private JLabel lblTtulo;
-	private JLabel lblCdigoIsbn;
+	private JLabel lblNumeroDeExemplares;
+	private JLabel lblTitulo;
+	private JLabel lblCodigoIsbn;
 	private JButton btnNewButton_1;
-
+	private static ViewCadastrarLivro frame;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -35,7 +44,7 @@ public class ViewCadastrarLivro extends JInternalFrame
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewCadastrarLivro frame = new ViewCadastrarLivro();
+					frame = new ViewCadastrarLivro();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,6 +53,18 @@ public class ViewCadastrarLivro extends JInternalFrame
 		});
 	}
 
+	public void enviarDados() {
+		CadastrarLivroController cadastro = new CadastrarLivroController();
+		cadastro.pegarDados(
+			this.textFieldCodigo.getText(),
+			this.textFieldAutor.getText(),
+			this.textFieldEditora.getText(),
+			this.textFieldDataDaPublicacao.getText(),
+			this.textFieldTitulo.getText(),
+			this.textFieldNumeroDeExemplares.getText()
+		);
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -54,85 +75,76 @@ public class ViewCadastrarLivro extends JInternalFrame
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		getContentPane().setLayout(null);
 		
-		txtAa = new JTextField();
-		txtAa.setToolTipText("Nome do Livro");
-		txtAa.setBounds(134, 194, 468, 51);
-		getContentPane().add(txtAa);
-		txtAa.setColumns(10);
+		textFieldAutor = new JTextField();
+		textFieldAutor.setBounds(160, 170, 400, 40);
+		getContentPane().add(textFieldAutor);
+		textFieldAutor.setColumns(10);
 		
-		textField = new JTextField();
-		textField.setToolTipText("Nome do Livro");
-		textField.setColumns(10);
-		textField.setBounds(134, 339, 468, 51);
-		getContentPane().add(textField);
+		textFieldEditora = new JTextField();
+		textFieldEditora.setColumns(10);
+		textFieldEditora.setBounds(160, 290, 400, 40);
+		getContentPane().add(textFieldEditora);
 		
-		textField_1 = new JTextField();
-		textField_1.setToolTipText("Nome do Livro");
-		textField_1.setColumns(10);
-		textField_1.setBounds(134, 489, 468, 51);
-		getContentPane().add(textField_1);
+		textFieldDataDaPublicacao = new JTextField();
+		textFieldDataDaPublicacao.setColumns(10);
+		textFieldDataDaPublicacao.setBounds(160, 410, 400, 40);
+		getContentPane().add(textFieldDataDaPublicacao);
 		
-		textField_2 = new JTextField();
-		textField_2.setToolTipText("Nome do Livro");
-		textField_2.setColumns(10);
-		textField_2.setBounds(134, 638, 468, 51);
-		getContentPane().add(textField_2);
+		textFieldNumeroDeExemplares = new JTextField();
+		textFieldNumeroDeExemplares.setColumns(10);
+		textFieldNumeroDeExemplares.setBounds(160, 530, 400, 40);
+		getContentPane().add(textFieldNumeroDeExemplares);
 		
-		textField_3 = new JTextField();
-		textField_3.setToolTipText("Nome do Livro");
-		textField_3.setColumns(10);
-		textField_3.setBounds(969, 204, 468, 51);
-		getContentPane().add(textField_3);
+		textFieldTitulo = new JTextField();
+		textFieldTitulo.setColumns(10);
+		textFieldTitulo.setBounds(790, 170, 400, 40);
+		getContentPane().add(textFieldTitulo);
 		
-		textField_4 = new JTextField();
-		textField_4.setToolTipText("Nome do Livro");
-		textField_4.setColumns(10);
-		textField_4.setBounds(969, 339, 468, 51);
-		getContentPane().add(textField_4);
+		textFieldCodigo = new JTextField();
+		textFieldCodigo.setColumns(10);
+		textFieldCodigo.setBounds(790, 290, 400, 40);
+		getContentPane().add(textFieldCodigo);
 		
-		JLabel lblNewLabel = new JLabel("Autor");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblNewLabel.setBounds(144, 105, 208, 79);
-		getContentPane().add(lblNewLabel);
+		lblAutor = new JLabel("Autor");
+		lblAutor.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblAutor.setBounds(160, 120, 208, 40);
+		getContentPane().add(lblAutor);
 		
 		lblEditora = new JLabel("Editora");
-		lblEditora.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblEditora.setBounds(144, 250, 208, 79);
+		lblEditora.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblEditora.setBounds(160, 240, 208, 40);
 		getContentPane().add(lblEditora);
 		
 		lblDataDaPublicao = new JLabel("Data da Publicação");
-		lblDataDaPublicao.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblDataDaPublicao.setBounds(144, 400, 413, 79);
+		lblDataDaPublicao.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDataDaPublicao.setBounds(160, 360, 208, 20);
 		getContentPane().add(lblDataDaPublicao);
 		
-		lblNmeroDeExemplares = new JLabel("Número de Exemplares");
-		lblNmeroDeExemplares.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblNmeroDeExemplares.setBounds(144, 550, 447, 79);
-		getContentPane().add(lblNmeroDeExemplares);
+		lblNumeroDeExemplares = new JLabel("Número de Exemplares");
+		lblNumeroDeExemplares.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNumeroDeExemplares.setBounds(160, 480, 208, 20);
+		getContentPane().add(lblNumeroDeExemplares);
 		
-		lblTtulo = new JLabel("Título");
-		lblTtulo.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblTtulo.setBounds(983, 115, 208, 79);
-		getContentPane().add(lblTtulo);
+		lblTitulo = new JLabel("Título");
+		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTitulo.setBounds(790, 120, 208, 40);
+		getContentPane().add(lblTitulo);
 		
-		lblCdigoIsbn = new JLabel("Código ISBN");
-		lblCdigoIsbn.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblCdigoIsbn.setBounds(979, 265, 314, 79);
-		getContentPane().add(lblCdigoIsbn);
+		lblCodigoIsbn = new JLabel("Código ISBN");
+		lblCodigoIsbn.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCodigoIsbn.setBounds(790, 240, 208, 40);
+		getContentPane().add(lblCodigoIsbn);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
-
-				modalConfirmacao.setVisible(true);
-				
+				enviarDados();
+				dispose();
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnNewButton.setBackground(new Color(156, 102, 68));
-		btnNewButton.setBounds(231, 751, 284, 44);
+		btnNewButton.setBounds(230, 650, 260, 40);
 		getContentPane().add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("Voltar");
@@ -143,6 +155,12 @@ public class ViewCadastrarLivro extends JInternalFrame
 		});
 		btnNewButton_1.setBounds(134, 66, 85, 21);
 		getContentPane().add(btnNewButton_1);
-
+		
+		ImageIcon imagem = new ImageIcon(getClass().getResource("livro.png"));
+		JLabel label = new JLabel(imagem);
+		label.setBounds(790, 341, 407, 349);
+		getContentPane().add(label);
+		
+		
 	}
 }

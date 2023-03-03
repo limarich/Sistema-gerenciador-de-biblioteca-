@@ -1,2 +1,6 @@
 /CadastrarClienteController.class
 /EditarClienteController.class
+/CadastrarLivroController.class
+/EditarLivroController.class
+/Exemplar.class
+/AlugarLivroController.class

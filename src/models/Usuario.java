@@ -16,6 +16,7 @@ public class Usuario
 	private String bairro;
 	private String rua;
 	private int numero;
+	private String senha;
 	
 	public String getCpf() {
 		return cpf;
@@ -103,6 +104,14 @@ public class Usuario
 	
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 }

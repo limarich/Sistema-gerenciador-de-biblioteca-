@@ -5,7 +5,7 @@ public class Exemplar
 	
 	private int id;
 	private int id_livro;
-	private int cpf;
+	private String cpf;
 	private String status;
 	private String dt_inicio;
 	private String dt_fim;
@@ -26,11 +26,11 @@ public class Exemplar
 		this.id_livro = id_livro;
 	}
 	
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	

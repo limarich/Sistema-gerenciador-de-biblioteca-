@@ -7,6 +7,8 @@ import java.awt.Toolkit;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
@@ -23,6 +25,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+import javax.swing.SwingUtilities;
 
 import controllers.CadastrarClienteController;
 import javax.swing.JRadioButton;
@@ -74,7 +77,7 @@ public class ViewCadastrarCliente extends JInternalFrame
 	public void enviarDados() throws SQLException {
 		CadastrarClienteController cadastro = new CadastrarClienteController();
 		cadastro.pegarDados(
-			textFieldCpf.getText(),
+			this.textFieldCpf.getText(),
 			this.textFieldNome.getText(),
 			this.textFieldDataNas.getText(),
 			this.textFieldTelefone.getText(),
@@ -211,11 +214,11 @@ public class ViewCadastrarCliente extends JInternalFrame
 		lblN.setBounds(1150, 480, 208, 40);
 		getContentPane().add(lblN);
 		
+		JFrame frameAtual = (JFrame) SwingUtilities.getWindowAncestor(this);
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
-				modalConfirmacao.setVisible(true);
+
 				try {
 					enviarDados();
 				} catch (SQLException e1) {

@@ -1,5 +1,6 @@
 package controllers;
 
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Date;
@@ -65,4 +66,5 @@ public class CadastrarClienteController extends Usuario {
         
         con.closeConnection();
     }
+
 }

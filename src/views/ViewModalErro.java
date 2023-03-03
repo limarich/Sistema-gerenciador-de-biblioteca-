@@ -5,8 +5,8 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,34 +17,29 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
-public class ViewModalConfirmacao extends JDialog 
+public class ViewModalErro extends JDialog 
 {
+
 	private final JPanel contentPanel = new JPanel();
 	public ViewCadastrarCliente cadastrarCliente;
-	String valor;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args, String titulo) {
 		try {
-			ViewModalConfirmacao dialog = new ViewModalConfirmacao();
+			ViewModalErro dialog = new ViewModalErro(titulo);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public String getValor() {
-		return this.valor;
-	}
-	
+
 	/**
 	 * Create the dialog.
 	 */
-	public ViewModalConfirmacao() {
+	public ViewModalErro(String titulo) {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		// obtém a largura e altura da tela
 		int screenWidth = screenSize.width;
@@ -67,37 +62,24 @@ public class ViewModalConfirmacao extends JDialog
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblNewLabel = new JLabel("Tem Certeza?");
+			JLabel lblNewLabel = new JLabel(titulo, JLabel.CENTER);
 			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 			lblNewLabel.setForeground(Color.WHITE);
-			lblNewLabel.setBounds(134, 34, 170, 64);
+			lblNewLabel.setBounds(0, 60, 434, 64);
 			contentPanel.add(lblNewLabel);
 		}
 		{
-			JButton btnSi = new JButton("Sim");
-			btnSi.setForeground(Color.WHITE);
-			btnSi.setBackground(new Color(96, 108, 58));
-			btnSi.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					valor = "1";
-					dispose();
-				}
-			});
-			btnSi.setBounds(101, 189, 85, 21);
-			contentPanel.add(btnSi);
-		}
-		{
-			JButton btnNo = new JButton("Não");
-			btnNo.addActionListener(new ActionListener() {
+			JButton btnOk = new JButton("OK");
+			btnOk.setForeground(Color.WHITE);
+			btnOk.setBackground(new Color(96, 108, 58));
+			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
 				}
 			});
-			btnNo.setBounds(259, 189, 85, 21);
-			contentPanel.add(btnNo);
+			btnOk.setBounds(170, 160, 100, 50);
+			contentPanel.add(btnOk);
 		}
 	}
-	
 
 }
