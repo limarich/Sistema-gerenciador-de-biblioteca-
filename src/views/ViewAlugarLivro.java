@@ -3,6 +3,7 @@ package views;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JDialog;
@@ -189,6 +190,11 @@ public class ViewAlugarLivro extends JInternalFrame
 			btnAlugar.setBounds(frameX+150, frameY+200, 180, 40);
 			contentPanel.add(btnAlugar);
 		}
+		
+		ImageIcon imagem = new ImageIcon(getClass().getResource("alexandre.png"));
+		JLabel label = new JLabel(imagem);
+		label.setBounds(frameX+136, 20, 136, 103);
+		contentPanel.add(label);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(220, 190, 156));

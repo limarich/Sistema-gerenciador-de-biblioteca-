@@ -78,6 +78,18 @@ public class ViewHomepage
 	 */
 	private void initialize() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		// obtém a largura e altura da tela
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+
+		// define a largura e altura da janela
+		int frameWidth = 450;
+		int frameHeight = 300;
+
+		// calcula a posição x e y da janela para centralizá-la na tela
+		int frameX = (screenWidth - frameWidth) / 2;
+		
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(221, 161, 94));
 		frame.getContentPane().setLayout(null);
@@ -100,7 +112,7 @@ public class ViewHomepage
 				
 			}
 		});
-		btnCadastrarCliente.setBackground(new Color(217, 217, 217));
+		btnCadastrarCliente.setBackground(new Color(220, 190, 156));
 		btnCadastrarCliente.setBounds(778, 262, 136, 45);
 		desktopPane.add(btnCadastrarCliente);
 		
@@ -113,7 +125,7 @@ public class ViewHomepage
 				
 			}
 		});
-		btnDevolverLivro.setBackground(new Color(217, 217, 217));
+		btnDevolverLivro.setBackground(new Color(220, 190, 156));
 		btnDevolverLivro.setBounds(334, 392, 136, 45);
 		desktopPane.add(btnDevolverLivro);
 		
@@ -125,7 +137,7 @@ public class ViewHomepage
 				viewModalBusca.setVisible(true);
 			}
 		});
-		btnEditarCliente.setBackground(new Color(217, 217, 217));
+		btnEditarCliente.setBackground(new Color(220, 190, 156));
 		btnEditarCliente.setBounds(334, 262, 136, 45);
 		desktopPane.add(btnEditarCliente);
 		
@@ -137,7 +149,7 @@ public class ViewHomepage
 				viewCadastrarLivro.setVisible(true);
 			}
 		});
-		btnCadastrarLivro.setBackground(new Color(217, 217, 217));
+		btnCadastrarLivro.setBackground(new Color(220, 190, 156));
 		btnCadastrarLivro.setBounds(334, 151, 136, 45);
 		desktopPane.add(btnCadastrarLivro);
 		
@@ -149,7 +161,7 @@ public class ViewHomepage
 				viewModalBusca.setVisible(true);
 			}
 		});
-		btnAlugarLivro.setBackground(new Color(217, 217, 217));
+		btnAlugarLivro.setBackground(new Color(220, 190, 156));
 		btnAlugarLivro.setBounds(778, 151, 136, 45);
 		desktopPane.add(btnAlugarLivro);
 		
@@ -161,10 +173,14 @@ public class ViewHomepage
 				viewModalBusca.setVisible(true);
 			}
 		});
-		btnEditarLivro.setBackground(new Color(217, 217, 217));
+		btnEditarLivro.setBackground(new Color(220, 190, 156));
 		btnEditarLivro.setBounds(778, 392, 136, 45);
 		desktopPane.add(btnEditarLivro);
 
+		ImageIcon imagem = new ImageIcon(getClass().getResource("alexandre.png"));
+		JLabel label = new JLabel(imagem);
+		label.setBounds(frameX+136, 20, 136, 103);
+		desktopPane.add(label);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

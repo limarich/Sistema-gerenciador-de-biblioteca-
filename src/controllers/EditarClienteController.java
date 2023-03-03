@@ -10,14 +10,6 @@ public class EditarClienteController extends Usuario
 {
 	Usuario usuario = new Usuario();
 	
-	public void checar(String cpf, ViewModalBusca frame) {
-		//
-		//se der ruim
-		//frame.invalido();
-		
-		//se der bom
-		//frame.valido(usuario);
-	}
 	
 	// cpf, nome, dataNascimento, telefone, email, cep, uf, cidade, bairro, rua, numero
 	public void pegarDados(
@@ -47,7 +39,9 @@ public class EditarClienteController extends Usuario
 		this.usuario.setNumero(Integer.parseInt(numero));
 		
 	}
-
+	public void setDados() {
+		this.usuario.setCpf("123456");
+	}
 	public void pegarDados(String text, String text2, String text3, String text4, String text5, String text6,
 			String text7, String text8, String text9, String text10, String text11) {
 		// TODO Auto-generated method stub

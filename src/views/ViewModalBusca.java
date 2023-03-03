@@ -3,6 +3,7 @@ package views;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JDialog;
@@ -69,34 +70,30 @@ public class ViewModalBusca extends JInternalFrame
 		}
 	}
 	
-	public void fetchUsuario() {
-		EditarClienteController editar = new EditarClienteController();
-		editar.checar(this.textField.getText(), frame);
-	}
 	
 	/**
 	 * Create the dialog.
 	 */
 	public ViewModalBusca(String title, ViewHomepage home, int num, String placeholder) {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		// obtém a largura e altura da tela
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+
+		// define a largura e altura da janela
+		int frameWidth = 450;
+		int frameHeight = 300;
+
+		// calcula a posição x e y da janela para centralizá-la na tela
+		int frameX = (screenWidth - frameWidth) / 2;
+		int frameY = (screenHeight - frameHeight) / 2;
+		
 		setMaximizable(true);
 		setResizable(true);
 		getContentPane().setBackground(new Color(221, 161, 94));
 		setClosable(true);
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		getContentPane().setLayout(null);
-		
-		// define a largura e altura do componente interno
-		int frameWidth = 450;
-		int frameHeight = 300;
-		
-		// obtém a largura e altura da tela
-		int screenWidth = screenSize.width;
-		int screenHeight = screenSize.height;
-		
-		// calcula a posição x e y do componente interno para centralizá-lo na tela
-		int frameX = (screenWidth - frameWidth) / 2;
-		int frameY = (screenHeight - frameHeight) / 2;
 
 		// define a posição e dimensão da janela
 		setBounds(0, 0, screenWidth, screenHeight);
@@ -152,6 +149,7 @@ public class ViewModalBusca extends JInternalFrame
 			JButton btnOk = new JButton("OK");
 			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+
 					ConnectionDB con = new ConnectionDB();
 					String sql = "SELECT * FROM usuario where pk_cpf='"+textField.getText()+"';";
 					ResultSet res = con.executaBusca(sql);
@@ -162,6 +160,7 @@ public class ViewModalBusca extends JInternalFrame
 							
 							Usuario usuario = new Usuario();
 							usuario.setNome(res.getString("nome_usuario"));
+							usuario.setCpf(placeholder);
 							usuario.setEmail(res.getString("email_usuario"));
 							usuario.setTelefone(res.getString("telefone_usuario"));
 							usuario.setDataNascimento(res.getDate("data_nascimento"));
@@ -171,8 +170,7 @@ public class ViewModalBusca extends JInternalFrame
 							usuario.setNumero(Integer.parseInt(res.getString("numero")));
 							usuario.setCep(Integer.parseInt(res.getString("cep")));
 							
-							EditarClienteController editar = new EditarClienteController();
-							editar.checar(usuario, frame);
+							ViewEditarCliente editar = new ViewEditarCliente();
 						}
 						
 					} catch (SQLException e1) {
@@ -182,12 +180,19 @@ public class ViewModalBusca extends JInternalFrame
 					}
 					
 					//home.openView(num, textField.getText());
+
+					home.openView(num, textField.getText());
+
 				}
 			});
 			btnOk.setBounds(frameX+410, frameY+100, 40, 40);
 			btnOk.setFont(new Font("Tahoma", Font.PLAIN, 4));
 			contentPanel.add(btnOk);
 		}
+		ImageIcon imag = new ImageIcon(getClass().getResource("alexandre.png"));
+		JLabel la = new JLabel(imag);
+		la.setBounds(frameX+136, 20, 136, 103);
+		contentPanel.add(la);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(220, 190, 156));
