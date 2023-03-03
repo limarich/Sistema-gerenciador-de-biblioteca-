@@ -78,7 +78,7 @@ public class ViewEditarCliente extends JInternalFrame
 	public void enviarDados() {
 		EditarClienteController editar = new EditarClienteController();
 		editar.pegarDados(
-			textFieldCpf.getText(),
+			this.textFieldCpf.getText(),
 			this.textFieldNome.getText(),
 			this.textFieldDataNas.getText(),
 			this.textFieldTelefone.getText(),
@@ -103,7 +103,7 @@ public class ViewEditarCliente extends JInternalFrame
 		setClosable(true);
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		getContentPane().setLayout(null);
-		
+		//textInput.setText
 		textFieldNome = new JTextField();
 		textFieldNome.setBounds(160, 170, 400, 40);
 		getContentPane().add(textFieldNome);
@@ -218,7 +218,11 @@ public class ViewEditarCliente extends JInternalFrame
 		JButton btnNewButton = new JButton("Atualizar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				enviarDados();
+                if(textFieldCpf.getText().length() == 11){
+                	ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
+                    modalConfirmacao.setVisible(true);
+                	enviarDados();
+                }
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);

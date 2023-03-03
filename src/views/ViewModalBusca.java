@@ -11,6 +11,9 @@ import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controllers.MeuDocumento;
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -18,6 +21,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusListener;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.KeyEvent;
@@ -34,21 +38,26 @@ import javax.swing.JDesktopPane;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+
+
 public class ViewModalBusca extends JInternalFrame 
 {
 	// Parâmetros: String título, ViewHomepage home, int numero_da_view
 
 	private final JPanel contentPanel = new JPanel();
 	private JLabel lblNewLabel;
+	private JLabel lblPlaceholder;
 	private JTextField textField;
 	private static ViewModalBusca frame;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args, String title, ViewHomepage home, int num) {
+	public static void main(String[] args, String title, ViewHomepage home, int num, String placeholder) {
 		try {
-			frame = new ViewModalBusca(title, home, num);
+			frame = new ViewModalBusca(title, home, num, placeholder);
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +68,7 @@ public class ViewModalBusca extends JInternalFrame
 	/**
 	 * Create the dialog.
 	 */
-	public ViewModalBusca(String title, ViewHomepage home, int num) {
+	public ViewModalBusca(String title, ViewHomepage home, int num, String placeholder) {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setMaximizable(true);
 		setResizable(true);
@@ -117,17 +126,24 @@ public class ViewModalBusca extends JInternalFrame
 	                public void keyReleased(KeyEvent e) {
 	                }
 	            });
+			    textField.setDocument(new MeuDocumento(11));  
 			}
 			textField.setBounds(frameX+30, frameY+100, 360, 40);
 			textField.setColumns(10);
 			contentPanel.add(textField);
 		}
 		{
+			lblPlaceholder = new JLabel(placeholder);
+			lblPlaceholder.setFont(new Font("Tahoma", Font.PLAIN, 10));
+			lblPlaceholder.setForeground(Color.BLACK);
+			lblPlaceholder.setBounds(frameX+30, frameY+120, 350, 64);
+			contentPanel.add(lblPlaceholder);
+		}
+		{
 			JButton btnOk = new JButton("OK");
 			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					home.openView(num, textField.getText());
-
 				}
 			});
 			btnOk.setBounds(frameX+410, frameY+100, 40, 40);

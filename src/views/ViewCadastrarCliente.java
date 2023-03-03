@@ -28,6 +28,8 @@ import javax.swing.JTextPane;
 import javax.swing.SwingUtilities;
 
 import controllers.CadastrarClienteController;
+import controllers.MeuDocumento;
+
 import javax.swing.JRadioButton;
 
 public class ViewCadastrarCliente extends JInternalFrame 
@@ -121,6 +123,7 @@ public class ViewCadastrarCliente extends JInternalFrame
 		textFieldCpf = new JTextField();
 		textFieldCpf.setBounds(370, 410, 190, 40);
 		getContentPane().add(textFieldCpf);
+		textFieldCpf.setDocument(new MeuDocumento(11));  
 		textFieldCpf.setColumns(10);
 
 		textFieldTelefone = new JTextField();
@@ -156,6 +159,7 @@ public class ViewCadastrarCliente extends JInternalFrame
 		textFieldN = new JTextField();
 		textFieldN.setBounds(1150, 530, 40, 40);
 		getContentPane().add(textFieldN);
+		textFieldN.setDocument(new MeuDocumento(3));  
 		textFieldN.setColumns(10);
 		
 		
@@ -218,12 +222,18 @@ public class ViewCadastrarCliente extends JInternalFrame
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				try {
-					enviarDados();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				if(textFieldCpf.getText().length() == 11) {
+					ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
+		            modalConfirmacao.setVisible(true);
+		            try {
+						enviarDados();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else {
+					ViewModalErro erro = new ViewModalErro("CPF Inválido");
+					erro.setVisible(true);
 				}
 			}
 		});

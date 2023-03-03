@@ -8,6 +8,9 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import controllers.CadastrarLivroController;
+
 import java.awt.Color;
 
 import javax.swing.ImageIcon;
@@ -20,13 +23,13 @@ public class ViewEditarLivro extends JInternalFrame
 {
 	private JTextField textFieldAutor;
 	private JTextField textFieldEditora;
-	private JTextField textFieldDataDaPublicao;
+	private JTextField textFieldDataDaPublicacao;
 	private JTextField textFieldNumeroDeExemplares;
 	private JTextField textFieldTitulo;
 	private JTextField textFieldCodigo;
 	private JLabel lblAutor;
 	private JLabel lblEditora;
-	private JLabel lblDataDaPublicao;
+	private JLabel lblDataDaPublicacao;
 	private JLabel lblNumeroDeExemplares;
 	private JLabel lblTitulo;
 	private JLabel lblCodigoIsbn;
@@ -47,6 +50,18 @@ public class ViewEditarLivro extends JInternalFrame
 				}
 			}
 		});
+	}
+	
+	public void enviarDados() {
+		CadastrarLivroController cadastro = new CadastrarLivroController();
+		cadastro.pegarDados(
+			this.textFieldCodigo.getText(),
+			this.textFieldAutor.getText(),
+			this.textFieldEditora.getText(),
+			this.textFieldDataDaPublicacao.getText(),
+			this.textFieldTitulo.getText(),
+			this.textFieldNumeroDeExemplares.getText()
+		);
 	}
 
 	/**
@@ -69,10 +84,10 @@ public class ViewEditarLivro extends JInternalFrame
 		textFieldEditora.setBounds(160, 290, 400, 40);
 		getContentPane().add(textFieldEditora);
 		
-		textFieldDataDaPublicao = new JTextField();
-		textFieldDataDaPublicao.setColumns(10);
-		textFieldDataDaPublicao.setBounds(160, 410, 400, 40);
-		getContentPane().add(textFieldDataDaPublicao);
+		textFieldDataDaPublicacao = new JTextField();
+		textFieldDataDaPublicacao.setColumns(10);
+		textFieldDataDaPublicacao.setBounds(160, 410, 400, 40);
+		getContentPane().add(textFieldDataDaPublicacao);
 		
 		textFieldNumeroDeExemplares = new JTextField();
 		textFieldNumeroDeExemplares.setColumns(10);
@@ -99,10 +114,10 @@ public class ViewEditarLivro extends JInternalFrame
 		lblEditora.setBounds(160, 240, 208, 40);
 		getContentPane().add(lblEditora);
 		
-		lblDataDaPublicao = new JLabel("Data da Publicação");
-		lblDataDaPublicao.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblDataDaPublicao.setBounds(160, 360, 208, 20);
-		getContentPane().add(lblDataDaPublicao);
+		lblDataDaPublicacao = new JLabel("Data da Publicação");
+		lblDataDaPublicacao.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDataDaPublicacao.setBounds(160, 360, 208, 20);
+		getContentPane().add(lblDataDaPublicacao);
 		
 		lblNumeroDeExemplares = new JLabel("Número de Exemplares");
 		lblNumeroDeExemplares.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -122,6 +137,9 @@ public class ViewEditarLivro extends JInternalFrame
 		JButton btnNewButton = new JButton("Atualizar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ViewModalConfirmacao modalConfirmacao = new ViewModalConfirmacao();
+                modalConfirmacao.setVisible(true);
+                enviarDados();
 				dispose();
 			}
 		});
